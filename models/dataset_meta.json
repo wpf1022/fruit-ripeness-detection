@@ -1,0 +1,28 @@
+{
+  "class_names": [
+    "Raw_Banana",
+    "Raw_Mango",
+    "Ripe_Banana",
+    "Ripe_Mango"
+  ],
+  "class_cn": {
+    "Raw_Banana": "未熟香蕉",
+    "Raw_Mango": "未熟芒果",
+    "Ripe_Banana": "成熟香蕉",
+    "Ripe_Mango": "成熟芒果"
+  },
+  "train_counts": {
+    "Raw_Banana": 999,
+    "Raw_Mango": 1000,
+    "Ripe_Banana": 1000,
+    "Ripe_Mango": 1000
+  },
+  "val_counts": {
+    "Raw_Banana": 250,
+    "Raw_Mango": 250,
+    "Ripe_Banana": 250,
+    "Ripe_Mango": 250
+  },
+  "source": "https://huggingface.co/datasets/darthraider/fruit-ripeness-detection-dataset",
+  "license": "apache-2.0"
+}

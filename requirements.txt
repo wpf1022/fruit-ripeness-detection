@@ -1,0 +1,17 @@
+# 方案 A（整图分类，旧版）
+torch>=2.0
+torchvision>=0.15
+flask>=2.3
+pyarrow>=14.0
+pillow>=9.0
+numpy>=1.24
+
+# 升级版：16 类 YOLOv8 目标检测
+ultralytics>=8.4
+opencv-python-headless>=4.10
+matplotlib>=3.7
+pandas>=2.0
+seaborn>=0.12
+psutil>=5.9
+pyyaml>=6.0
+scipy>=1.10

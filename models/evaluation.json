@@ -1,0 +1,63 @@
+{
+  "model": "MobileNetV2 + 分类头 (迁移学习)",
+  "accuracy": 1.0,
+  "per_class": {
+    "Raw_Banana": {
+      "cn": "未熟香蕉",
+      "accuracy": 1.0,
+      "support": 250
+    },
+    "Raw_Mango": {
+      "cn": "未熟芒果",
+      "accuracy": 1.0,
+      "support": 250
+    },
+    "Ripe_Banana": {
+      "cn": "成熟香蕉",
+      "accuracy": 1.0,
+      "support": 250
+    },
+    "Ripe_Mango": {
+      "cn": "成熟芒果",
+      "accuracy": 1.0,
+      "support": 250
+    }
+  },
+  "confusion_matrix": [
+    [
+      250,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      250,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      250,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      250
+    ]
+  ],
+  "class_order": [
+    "Raw_Banana",
+    "Raw_Mango",
+    "Ripe_Banana",
+    "Ripe_Mango"
+  ],
+  "train_samples": 3999,
+  "val_samples": 1000,
+  "elapsed_seconds": 81.3,
+  "dataset_source": "https://huggingface.co/datasets/darthraider/fruit-ripeness-detection-dataset",
+  "license": "apache-2.0"
+}

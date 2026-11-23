@@ -1,0 +1,43 @@
+{
+  "class_names": [
+    "apple-H",
+    "apple-M",
+    "apple-L",
+    "banana-H",
+    "banana-M",
+    "banana-L",
+    "grape-H",
+    "grape-M",
+    "grape-L",
+    "strawberry-H",
+    "strawberry-M",
+    "strawberry-L",
+    "persimmon-H",
+    "persimmon-M",
+    "persimmon-L",
+    "bad fruit"
+  ],
+  "cn_names": [
+    "苹果-高成熟",
+    "苹果-中成熟",
+    "苹果-低成熟",
+    "香蕉-高成熟",
+    "香蕉-中成熟",
+    "香蕉-低成熟",
+    "葡萄-高成熟",
+    "葡萄-中成熟",
+    "葡萄-低成熟",
+    "草莓-高成熟",
+    "草莓-中成熟",
+    "草莓-低成熟",
+    "柿子-高成熟",
+    "柿子-中成熟",
+    "柿子-低成熟",
+    "腐烂水果"
+  ],
+  "sources": [
+    "Kaggle/Roboflow fruit-ripeness-unjex/2 (CC BY 4.0)",
+    "Kaggle samatsauranbek/multi-class-strawberry-ripeness-detection-v2 (CC BY 4.0)",
+    "Persimmon samples: see prepare_persimmon.py"
+  ]
+}

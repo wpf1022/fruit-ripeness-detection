@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>水果成熟度智能检测系统 · YOLOv8</title>
+<style>
+:root{--bg:#f4f7fb;--panel:#fff;--ink:#172033;--muted:#667085;--line:#e5eaf2;--brand:#2563eb;--green:#16a34a;--red:#dc2626;--shadow:0 12px 32px rgba(20,35,70,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei",system-ui,-apple-system,sans-serif}
+header{background:linear-gradient(120deg,#0f172a,#1d4ed8);color:#fff;padding:28px 5vw}
+header h1{margin:0;font-size:28px;letter-spacing:.5px}.sub{margin-top:8px;color:#dbeafe;font-size:14px}
+.badges{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:5px 10px;border-radius:20px;font-size:12px}
+main{max-width:1280px;margin:24px auto;padding:0 20px}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px}
+.card h2{font-size:17px;margin:0 0 14px}.drop{border:2px dashed #b9c6da;border-radius:14px;min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);background:#fafcff;transition:.2s;cursor:pointer}
+.drop.over{border-color:var(--brand);background:#eff6ff}.drop strong{color:var(--ink);font-size:16px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}button{border:0;border-radius:10px;background:var(--brand);color:#fff;padding:10px 16px;font-weight:600;cursor:pointer;font-size:14px}button:hover{filter:brightness(1.08)}button.secondary{background:#e8eef9;color:#1e3a8a}input[type=range]{width:150px}
+.preview{position:relative;background:#0b1220;border-radius:14px;overflow:hidden;min-height:320px;display:flex;align-items:center;justify-content:center}.preview img{max-width:100%;max-height:560px;display:block}.placeholder{color:#94a3b8;text-align:center;padding:40px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}.stat{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}.stat b{display:block;font-size:24px;color:var(--brand)}.stat span{font-size:12px;color:var(--muted)}
+.detections{margin-top:14px;max-height:230px;overflow:auto}.det{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin-bottom:8px;font-size:13px}.dot{width:12px;height:12px;border-radius:50%;flex:none}.det .name{flex:1;font-weight:600}.det .conf{color:var(--green);font-weight:700}
+.samples{display:flex;gap:8px;overflow-x:auto;padding:4px 0}.samples img{width:92px;height:72px;object-fit:cover;border-radius:9px;border:2px solid transparent;cursor:pointer}.samples img:hover{border-color:var(--brand)}
+table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600}
+.full{grid-column:1/-1}.muted{color:var(--muted);font-size:12px}.error{color:var(--red);font-size:13px;margin-top:10px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>水果成熟度智能检测系统</h1>
+  <div class="sub">YOLOv8 多目标检测 · 16 类分级 · 支持图片上传 / 摄像头 / 示例图</div>
+  <div class="badges"><span class="badge">模型：YOLOv8n</span><span class="badge">类别：16 类</span><span class="badge">输入：416 × 416</span><span class="badge">本地推理</span></div>
+</header>
+<main>
+<div class="grid">
+  <section class="card">
+    <h2>① 输入图像</h2>
+    <div class="drop" id="drop">
+      <strong>点击选择图片，或拖拽到此处</strong>
+      <span>支持 JPG / PNG，单张最大 16 MB</span>
+      <input type="file" id="file" accept="image/*" hidden>
+    </div>
+    <div class="tools">
+      <button id="uploadBtn">开始检测</button>
+      <button class="secondary" id="cameraBtn">开启摄像头</button>
+      <button class="secondary" id="captureBtn" style="display:none">拍摄并检测</button>
+      <label class="muted">置信度阈值 <input type="range" id="conf" min="5" max="90" value="25"> <span id="confVal">0.25</span></label>
+    </div>
+    <video id="video" style="display:none;width:100%;border-radius:12px;margin-top:12px" autoplay playsinline></video>
+    <canvas id="shot" style="display:none"></canvas>
+    <div class="error" id="error"></div>
+    <h2 style="margin-top:20px">数据集示例</h2>
+    <div class="samples" id="samples"></div>
+  </section>
+
+  <section class="card">
+    <h2>② 检测结果</h2>
+    <div class="stats">
+      <div class="stat"><b id="countStat">0</b><span>检出目标</span></div>
+      <div class="stat"><b id="timeStat">—</b><span>推理耗时 (s)</span></div>
+      <div class="stat"><b id="mapStat">—</b><span>mAP@0.5</span></div>
+    </div>
+    <div class="preview" id="preview"><div class="placeholder">检测结果将显示在这里</div></div>
+    <div class="detections" id="detections"></div>
+  </section>
+
+  <section class="card full">
+    <h2>最近识别记录</h2>
+    <table><thead><tr><th>时间</th><th>文件 / 示例</th><th>目标数</th><th>类别</th><th>最高置信度</th><th>耗时</th></tr></thead><tbody id="history"></tbody></table>
+  </section>
+</div>
+</main>
+<script>
+let currentFile=null, stream=null;
+const $=id=>document.getElementById(id);
+const err=t=>{$('error').textContent=t||''};
+$('conf').oninput=()=>$('confVal').textContent=(+$('conf').value/100).toFixed(2);
+$('drop').onclick=()=>$('file').click();
+$('drop').ondragover=e=>{e.preventDefault();$('drop').classList.add('over')};
+$('drop').ondragleave=()=>$('drop').classList.remove('over');
+$('drop').ondrop=e=>{e.preventDefault();$('drop').classList.remove('over');if(e.dataTransfer.files[0])setFile(e.dataTransfer.files[0])};
+$('file').onchange=e=>e.target.files[0]&&setFile(e.target.files[0]);
+function setFile(f){currentFile=f;err('');$('preview').innerHTML=`<img src="${URL.createObjectURL(f)}" alt="预览">`}
+async function loadMeta(){const d=await (await fetch('/api/meta')).json();
+  $('mapStat').textContent=d.report.mAP50?(+d.report.mAP50).toFixed(3):'—';
+  $('samples').innerHTML=d.samples.map(s=>`<img title="${s}" src="/sample/${s}" onclick="predictSample('${s}')">`).join('');
+  $('history').innerHTML=d.history.length?d.history.map(r=>`<tr><td>${r.ts}</td><td>${r.filename}</td><td>${r.count}</td><td>${r.labels}</td><td>${(r.confidence*100).toFixed(1)}%</td><td>${r.duration}s</td></tr>`).join(''):'<tr><td colspan="6" class="muted">暂无记录</td></tr>';
+}
+async function post(form){err('');try{const r=await fetch('/predict',{method:'POST',body:form});const d=await r.json();if(!d.success)throw new Error(d.error||'检测失败');showResult(d);loadMeta()}catch(e){err('检测失败：'+e.message)}}
+function showResult(d){$('preview').innerHTML=`<img src="${d.result_image}?t=${Date.now()}" alt="检测结果">`;
+  $('countStat').textContent=d.count;$('timeStat').textContent=d.duration;
+  $('detections').innerHTML=d.detections.length?d.detections.map(x=>`<div class="det"><span class="dot" style="background:${color(x.class_id)}"></span><span class="name">${x.cn_name}</span><span class="muted">${x.label}</span><span class="conf">${(x.confidence*100).toFixed(1)}%</span></div>`).join(''):'<div class="muted">未检出目标，请降低置信度阈值或换一张图片</div>';}
+function color(i){const c=['#ef4444','#f97316','#eab308','#84cc16','#22c55e','#14b8a6','#06b6d4','#3b82f6','#6366f1','#8b5cf6','#a855f7','#d946ef','#ec4899','#f43f5e','#0ea5e9','#64748b'];return c[i%c.length]}
+$('uploadBtn').onclick=()=>{if(!currentFile)return err('请先选择一张图片');const f=new FormData();f.append('image',currentFile);f.append('conf',$('conf').value/100);post(f)};
+window.predictSample=name=>{const f=new FormData();f.append('sample',name);f.append('conf',$('conf').value/100);post(f)};
+$('cameraBtn').onclick=async()=>{try{stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});$('video').srcObject=stream;$('video').style.display='block';$('captureBtn').style.display='inline-block';err('')}catch(e){err('摄像头不可用：'+e.name+'。请使用系统浏览器打开并允许相机权限。')}};
+$('captureBtn').onclick=()=>{const v=$('video'),c=$('shot');c.width=v.videoWidth;c.height=v.videoHeight;c.getContext('2d').drawImage(v,0,0);c.toBlob(b=>{const f=new FormData();f.append('image',b,'camera.jpg');f.append('conf',$('conf').value/100);post(f)},'image/jpeg',.92)};
+loadMeta();
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "task": "16-class fruit ripeness object detection",
+  "model": "YOLOv8n (Ultralytics) 8 epochs + 4 epochs fine-tune",
+  "dataset": "dataset/yolo16",
+  "mAP50": 0.83185,
+  "mAP50_95": 0.67131,
+  "precision": 0.81014,
+  "recall": 0.78779,
+  "epochs": "8+4",
+  "imgsz": 416,
+  "val_images": 734,
+  "val_instances": 1551,
+  "inference_ms_per_image": 19.1,
+  "weights": "models/fruit_yolov8_detector.pt",
+  "class_names": [
+    "apple-H",
+    "apple-M",
+    "apple-L",
+    "banana-H",
+    "banana-M",
+    "banana-L",
+    "grape-H",
+    "grape-M",
+    "grape-L",
+    "strawberry-H",
+    "strawberry-M",
+    "strawberry-L",
+    "persimmon-H",
+    "persimmon-M",
+    "persimmon-L",
+    "bad fruit"
+  ],
+  "sources": [
+    "Kaggle/Roboflow fruit-ripeness-unjex/2 (CC BY 4.0)",
+    "Kaggle samatsauranbek/multi-class-strawberry-ripeness-detection-v2 (CC BY 4.0)",
+    "Persimmon samples: see prepare_persimmon.py"
+  ],
+  "note": "柿子三类由 Fruits-360 Kaki 样本经色相增强+贴背景弱监督生成，框位置已校正并微调；真实场景泛化需补充自采数据"
+}
