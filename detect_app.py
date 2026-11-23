@@ -18,7 +18,8 @@ META_PATH = ROOT / "dataset" / "yolo16" / "dataset_meta.json"
 REPORT_PATH = ROOT / "models" / "detection_evaluation.json"
 UPLOADS = ROOT / "uploads_detect"
 DB_PATH = ROOT / "detection_history.db"
-SAMPLES = ROOT / "dataset" / "yolo16" / "images" / "val"
+SAMPLES = ROOT / "demo_samples"  # 仓库内置示例图，克隆后即可用
+DATASET_SAMPLES = ROOT / "dataset" / "yolo16" / "images" / "val"  # 本地完整数据集（若存在）
 
 UPLOADS.mkdir(exist_ok=True)
 app = Flask(__name__)
@@ -136,7 +137,7 @@ def api_meta():
     report = {}
     if REPORT_PATH.exists():
         report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
-    samples = sorted(p.name for p in SAMPLES.glob("*.jpg"))[:12]
+    samples = sorted(p.name for p in SAMPLES.glob("*.jpg"))[:16]
     with sqlite3.connect(DB_PATH) as conn:
         rows = conn.execute(
             "SELECT ts, filename, count, labels, confidence, duration FROM records ORDER BY id DESC LIMIT 12"
@@ -154,7 +155,10 @@ def predict():
         conf = float(request.form.get("conf", 0.25))
         sample_name = request.form.get("sample", "")
         if sample_name:
-            image = Image.open(SAMPLES / sample_name).convert("RGB")
+            p = SAMPLES / sample_name
+            if not p.exists():
+                p = DATASET_SAMPLES / sample_name
+            image = Image.open(p).convert("RGB")
             filename = sample_name
         elif "image" in request.files:
             file = request.files["image"]
@@ -165,7 +169,10 @@ def predict():
             sample_name = data.get("sample", "")
             if not sample_name:
                 return jsonify({"error": "缺少 sample 字段"}), 400
-            image = Image.open(SAMPLES / sample_name).convert("RGB")
+            p = SAMPLES / sample_name
+            if not p.exists():
+                p = DATASET_SAMPLES / sample_name
+            image = Image.open(p).convert("RGB")
             filename = sample_name
         else:
             return jsonify({"error": "请上传图片或指定示例图"}), 400

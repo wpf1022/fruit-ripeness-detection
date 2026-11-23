@@ -43,6 +43,7 @@ table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;p
       <button id="uploadBtn">开始检测</button>
       <button class="secondary" id="cameraBtn">开启摄像头</button>
       <button class="secondary" id="captureBtn" style="display:none">拍摄并检测</button>
+      <button class="secondary" id="closeCameraBtn" style="display:none">关闭摄像头</button>
       <label class="muted">置信度阈值 <input type="range" id="conf" min="5" max="90" value="25"> <span id="confVal">0.25</span></label>
     </div>
     <video id="video" style="display:none;width:100%;border-radius:12px;margin-top:12px" autoplay playsinline></video>
@@ -79,7 +80,7 @@ $('drop').ondragover=e=>{e.preventDefault();$('drop').classList.add('over')};
 $('drop').ondragleave=()=>$('drop').classList.remove('over');
 $('drop').ondrop=e=>{e.preventDefault();$('drop').classList.remove('over');if(e.dataTransfer.files[0])setFile(e.dataTransfer.files[0])};
 $('file').onchange=e=>e.target.files[0]&&setFile(e.target.files[0]);
-function setFile(f){currentFile=f;err('');$('preview').innerHTML=`<img src="${URL.createObjectURL(f)}" alt="预览">`}
+function setFile(f){if(stream)stopCamera();currentFile=f;err('');$('preview').innerHTML=`<img src="${URL.createObjectURL(f)}" alt="预览">`}
 async function loadMeta(){const d=await (await fetch('/api/meta')).json();
   $('mapStat').textContent=d.report.mAP50?(+d.report.mAP50).toFixed(3):'—';
   $('samples').innerHTML=d.samples.map(s=>`<img title="${s}" src="/sample/${s}" onclick="predictSample('${s}')">`).join('');
@@ -90,10 +91,25 @@ function showResult(d){$('preview').innerHTML=`<img src="${d.result_image}?t=${D
   $('countStat').textContent=d.count;$('timeStat').textContent=d.duration;
   $('detections').innerHTML=d.detections.length?d.detections.map(x=>`<div class="det"><span class="dot" style="background:${color(x.class_id)}"></span><span class="name">${x.cn_name}</span><span class="muted">${x.label}</span><span class="conf">${(x.confidence*100).toFixed(1)}%</span></div>`).join(''):'<div class="muted">未检出目标，请降低置信度阈值或换一张图片</div>';}
 function color(i){const c=['#ef4444','#f97316','#eab308','#84cc16','#22c55e','#14b8a6','#06b6d4','#3b82f6','#6366f1','#8b5cf6','#a855f7','#d946ef','#ec4899','#f43f5e','#0ea5e9','#64748b'];return c[i%c.length]}
-$('uploadBtn').onclick=()=>{if(!currentFile)return err('请先选择一张图片');const f=new FormData();f.append('image',currentFile);f.append('conf',$('conf').value/100);post(f)};
-window.predictSample=name=>{const f=new FormData();f.append('sample',name);f.append('conf',$('conf').value/100);post(f)};
-$('cameraBtn').onclick=async()=>{try{stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});$('video').srcObject=stream;$('video').style.display='block';$('captureBtn').style.display='inline-block';err('')}catch(e){err('摄像头不可用：'+e.name+'。请使用系统浏览器打开并允许相机权限。')}};
-$('captureBtn').onclick=()=>{const v=$('video'),c=$('shot');c.width=v.videoWidth;c.height=v.videoHeight;c.getContext('2d').drawImage(v,0,0);c.toBlob(b=>{const f=new FormData();f.append('image',b,'camera.jpg');f.append('conf',$('conf').value/100);post(f)},'image/jpeg',.92)};
+$('uploadBtn').onclick=()=>{if(!currentFile)return err('请先选择一张图片');if(stream)stopCamera();const f=new FormData();f.append('image',currentFile);f.append('conf',$('conf').value/100);post(f)};
+window.predictSample=name=>{if(stream)stopCamera();const f=new FormData();f.append('sample',name);f.append('conf',$('conf').value/100);post(f)};
+function cameraUI(on){$('video').style.display=on?'block':'none';$('cameraBtn').style.display=on?'none':'inline-block';$('captureBtn').style.display=on?'inline-block':'none';$('closeCameraBtn').style.display=on?'inline-block':'none'}
+function stopCamera(){if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}$('video').srcObject=null;cameraUI(false);err('')}
+$('cameraBtn').onclick=async()=>{
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){err('当前浏览器不支持摄像头，请用 Chrome/Edge 打开 http://127.0.0.1:5001');return}
+  err('正在打开摄像头…');
+  try{
+    const s=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});
+    if(stream){s.getTracks().forEach(t=>t.stop());return}
+    stream=s;$('video').srcObject=stream;cameraUI(true);err('');
+  }catch(e){
+    const m={NotAllowedError:'权限被拒绝，请在地址栏允许相机并刷新',NotFoundError:'未找到摄像头设备',NotReadableError:'摄像头被其他程序占用',OverconstrainedError:'摄像头不支持该分辨率'};
+    err('摄像头不可用：'+(m[e.name]||e.name||e.message)+'。请用系统浏览器打开并允许相机权限。');
+  }
+};
+$('closeCameraBtn').onclick=stopCamera;
+$('captureBtn').onclick=()=>{const v=$('video'),c=$('shot');if(!v.videoWidth){err('摄像头画面尚未就绪，请稍候');return}c.width=v.videoWidth;c.height=v.videoHeight;c.getContext('2d').drawImage(v,0,0);c.toBlob(b=>{const f=new FormData();f.append('image',b,'camera.jpg');f.append('conf',$('conf').value/100);post(f)},'image/jpeg',.92)};
+window.addEventListener('beforeunload',()=>{if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}});
 loadMeta();
 </script>
 </body>

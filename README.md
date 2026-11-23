@@ -35,7 +35,10 @@ python detect_photo.py path/to/image.jpg 0.25
 | `prepare_yolo16.py` / `prepare_persimmon.py` | 数据整理管线：把多个开源集映射成统一 16 类 YOLO 格式 |
 | `models/fruit_yolov8_detector.pt` | 最终检测模型权重 |
 | `models/detection_evaluation.json` | 评估报告与数据来源 |
+| `demo_samples/` | 仓库内置的 16 张演示示例图，克隆后即可一键体验，无需下载数据集 |
 | `app.py` / `train.py` / `predict.py` | 旧版整图分类（MobileNetV2，端口 5000） |
+
+> 演示网页开箱即用：模型权重、类别元数据和 16 张示例图都已随仓库提供，克隆后 `pip install -r requirements.txt` 再 `python detect_app.py` 即可，无需下载 2 GB 训练数据集。摄像头支持开启 / 拍摄 / 关闭，关闭时会真正释放设备。
 
 ## 数据来源
 
