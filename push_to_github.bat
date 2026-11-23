@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 echo ==========================================
-echo   Push fruit-ripeness-a to GitHub
+echo   Push fruit-ripeness-a to GitHub (wpf1022)
 echo ==========================================
 echo.
 
@@ -15,34 +15,28 @@ if errorlevel 1 (
     exit /b 1
 )
 
-REM ---- Step 2: ask for GitHub username ----
-set /p GH_USER="Enter your GitHub username: "
-if "%GH_USER%"=="" (
-    echo [ERROR] Username cannot be empty.
-    pause
-    exit /b 1
-)
+set "GH_USER=wpf1022"
+set "GH_REPO=fruit-ripeness-detection"
 
-set /p GH_REPO="Enter repository name [fruit-ripeness-detection]: "
-if "%GH_REPO%"=="" set GH_REPO=fruit-ripeness-detection
-
-echo.
-echo [INFO] Repository will be: https://github.com/%GH_USER%/%GH_REPO%
-echo [INFO] If the repo does not exist yet, create it at:
-echo        https://github.com/new  (name it: %GH_REPO%, do NOT add README/license)
+echo [INFO] Target: https://github.com/%GH_USER%/%GH_REPO%
+echo [INFO] If the repo does not exist yet, create it at https://github.com/new
+echo        - Repository name: %GH_REPO%
+echo        - Public / Private: your choice
+echo        - Do NOT add README, license or .gitignore (local repo already has them)
 echo.
 pause
 
-REM ---- Step 3: set remote (token will be asked by Git credential helper) ----
+REM ---- Step 2: set remote ----
 git remote remove origin 2>nul
 git remote add origin https://github.com/%GH_USER%/%GH_REPO%.git
 
-REM ---- Step 4: ensure main branch ----
+REM ---- Step 3: ensure main branch ----
 git branch -M main
 
-REM ---- Step 5: push ----
+REM ---- Step 4: push (Git Credential Manager will ask for sign-in / PAT) ----
 echo.
-echo [INFO] Pushing. A Git Credential Manager window may pop up - sign in with your GitHub account (or use a Personal Access Token as password).
+echo [INFO] Pushing. If a Git Credential Manager window pops up, sign in with your GitHub account,
+echo        or paste a Personal Access Token with 'repo' scope as the password.
 echo.
 git push -u origin main
 if errorlevel 1 (
@@ -50,7 +44,7 @@ if errorlevel 1 (
     echo [ERROR] Push failed. Common causes:
     echo   1. Repository not created on GitHub yet
     echo   2. Not signed in: run  git config --global credential.helper manager  then retry
-    echo   3. Need a token: https://github.com/settings/tokens ^(repo scope^)
+    echo   3. Need a token: https://github.com/settings/tokens  ^(check 'repo'^)
     pause
     exit /b 1
 )
