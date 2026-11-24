@@ -1,0 +1,36 @@
+<Slide style={{ width: 1280, height: 720, padding: 0, background: '#0E3F8C', position: 'relative' }}>
+  <Box style={{ position: 'absolute', left: 300, top: 0, width: 980, height: 720, background: '#FFFFFF' }} />
+  <Box style={{ position: 'absolute', left: 40, top: 96, width: 220, height: 528, flexDirection: 'column', justifyContent: 'space-between' }}>
+    <Box>
+      <Text style={{ fontSize: 56, fontWeight: 'bold', color: '#FFFFFF' }}>汇报提纲</Text>
+      <Text style={{ fontSize: 20, color: '#BFCFE6', letterSpacing: 3, marginTop: 12 }}>CONTENTS</Text>
+    </Box>
+    <Box>
+      <Box style={{ width: 56, height: 4, background: '#FFC107', marginBottom: 24 }} />
+      <Text style={{ fontSize: 19, color: '#D9E6F7', lineHeight: 1.6 }}>从问题出发，说明方案如何升级，再用数据与系统验证创新点。</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 340, top: 96, width: 860, height: 528, flexDirection: 'column', gap: 16 }}>
+    <Box style={{ height: 88, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16, flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+      <Box style={{ width: 56, height: 56, background: '#1E4FA8', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF' }}>01</Text></Box>
+      <Box><Text style={{ fontSize: 27, fontWeight: 'bold', color: '#1A2230' }}>背景与问题</Text><Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.4 }}>人工分级与整图分类的局限</Text></Box>
+    </Box>
+    <Box style={{ height: 88, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16, flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+      <Box style={{ width: 56, height: 56, background: '#1E4FA8', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF' }}>02</Text></Box>
+      <Box><Text style={{ fontSize: 27, fontWeight: 'bold', color: '#1A2230' }}>方案演进与技术路线</Text><Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.4 }}>从分类基线到 YOLO 多目标检测</Text></Box>
+    </Box>
+    <Box style={{ height: 88, background: '#E8EFF8', border: '1px solid #3D7BD9', borderRadius: 10, padding: 16, flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+      <Box style={{ width: 56, height: 56, background: '#1E4FA8', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF' }}>03</Text></Box>
+      <Box><Text style={{ fontSize: 27, fontWeight: 'bold', color: '#0E3F8C' }}>三项核心创新点</Text><Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.4 }}>细粒度检测 · 数据重构 · 弱监督补齐</Text></Box>
+    </Box>
+    <Box style={{ height: 88, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16, flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+      <Box style={{ width: 56, height: 56, background: '#1E4FA8', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF' }}>04</Text></Box>
+      <Box><Text style={{ fontSize: 27, fontWeight: 'bold', color: '#1A2230' }}>实验结果与方案对比</Text><Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.4 }}>精度、速度与能力边界</Text></Box>
+    </Box>
+    <Box style={{ height: 88, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16, flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+      <Box style={{ width: 56, height: 56, background: '#1E4FA8', borderRadius: 8, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF' }}>05</Text></Box>
+      <Box><Text style={{ fontSize: 27, fontWeight: 'bold', color: '#1A2230' }}>系统演示与展望</Text><Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.4 }}>交互闭环、局限与改进路线</Text></Box>
+    </Box>
+  </Box>
+</Slide>

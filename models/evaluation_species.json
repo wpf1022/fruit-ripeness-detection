@@ -1,0 +1,123 @@
+{
+  "accuracy": 1.0,
+  "tta_accuracy": 1.0,
+  "train_samples": 561,
+  "val_samples": 148,
+  "class_order": [
+    "apple",
+    "banana",
+    "grape",
+    "orange",
+    "strawberry",
+    "bad fruit"
+  ],
+  "class_cn": {
+    "apple": "苹果",
+    "banana": "香蕉",
+    "grape": "葡萄",
+    "orange": "橙子",
+    "strawberry": "草莓",
+    "bad fruit": "腐烂水果"
+  },
+  "per_class": {
+    "apple": {
+      "cn": "苹果",
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "support": 39
+    },
+    "banana": {
+      "cn": "香蕉",
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "support": 32
+    },
+    "grape": {
+      "cn": "葡萄",
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "support": 33
+    },
+    "orange": {
+      "cn": "橙子",
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "support": 13
+    },
+    "strawberry": {
+      "cn": "草莓",
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "support": 21
+    },
+    "bad fruit": {
+      "cn": "腐烂水果",
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "support": 10
+    }
+  },
+  "confusion_matrix": [
+    [
+      39,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      32,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      33,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      13,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      21,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      10
+    ]
+  ],
+  "train_counts": {
+    "apple": 137,
+    "banana": 124,
+    "grape": 137,
+    "orange": 33,
+    "strawberry": 89,
+    "bad fruit": 41
+  },
+  "dataset": "dataset/yolo16_final（三档合并为种类）",
+  "epochs": 30,
+  "note": "成熟度不在此模型内判定，由 ripeness.py 的颜色语义规则给出",
+  "end_to_end_accuracy": 0.9932,
+  "end_to_end_note": "验证集 148 张走完整链路（YOLOv8 定位 + TTA 种类判定）实测 147 张正确"
+}

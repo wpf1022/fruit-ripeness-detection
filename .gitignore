@@ -33,3 +33,19 @@ uploads_detect/
 *.db
 .DS_Store
 Thumbs.db
+
+# ===== 数据清洗的中间版本（只保留最终 dataset/yolo16_final） =====
+dataset/yolo16_clean/
+dataset/yolo16v2/
+dataset/fruitbench/
+dataset/rejected_species/*
+!dataset/rejected_species/_log.json
+
+# ===== 目视核对拼图、IDE 与下载缓存（可随时用脚本重建） =====
+.idea/
+contacts/
+contacts_final/
+contacts_pick/
+hf_tree.json
+答辩PPT/.cache/
+答辩PPT/.slidep/

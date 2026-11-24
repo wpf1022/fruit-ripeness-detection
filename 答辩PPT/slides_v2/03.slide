@@ -1,0 +1,58 @@
+<Slide style={{ width: 1280, height: 720, padding: 0, background: '#FFFFFF', position: 'relative' }}>
+  <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 72, background: '#0E3F8C', paddingLeft: 40, paddingRight: 40, flexDirection: 'row', alignItems: 'center' }}>
+    <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#FFFFFF' }}>项目基础：基于什么做的</Text>
+  </Box>
+  <Box style={{ position: 'absolute', left: 0, top: 72, width: 1280, height: 2, background: '#3D7BD9' }} />
+
+  <Box style={{ position: 'absolute', left: 40, top: 94, width: 1200, height: 34 }}>
+    <Text style={{ fontSize: 22, color: '#4A5568' }}>数据来自三个公开数据集，模型基于 YOLOv8n 官方预训练权重做迁移微调，并非从零训练。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 140, width: 1200, height: 160, flexDirection: 'row', gap: 30 }}>
+    <Box style={{ width: 380, height: 160, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 18 }}>
+      <Box style={{ width: 56, height: 40, background: '#1E4FA8', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>数据 A</Text></Box>
+      <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>Kaggle / Roboflow</Text>
+      <Text style={{ fontSize: 19, color: '#4A5568', lineHeight: 1.5, marginTop: 8 }}>水果成熟度数据：苹果、香蕉、葡萄与腐烂类，CC BY 4.0。</Text>
+    </Box>
+    <Box style={{ width: 380, height: 160, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 18 }}>
+      <Box style={{ width: 56, height: 40, background: '#1E4FA8', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>数据 B</Text></Box>
+      <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>草莓成熟度 v2</Text>
+      <Text style={{ fontSize: 19, color: '#4A5568', lineHeight: 1.5, marginTop: 8 }}>草莓高 / 中 / 低成熟，标注为多边形，需转换，CC BY 4.0。</Text>
+    </Box>
+    <Box style={{ width: 380, height: 160, background: '#E8EFF8', border: '1px solid #3D7BD9', borderRadius: 10, padding: 18 }}>
+      <Box style={{ width: 56, height: 40, background: '#0E3F8C', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>数据 C</Text></Box>
+      <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>Fruits-360 Kaki</Text>
+      <Text style={{ fontSize: 19, color: '#4A5568', lineHeight: 1.5, marginTop: 8 }}>柿子样本但无成熟度标签，MIT 许可，需弱监督补齐。</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 322, width: 1200, height: 84, background: '#0E3F8C', borderRadius: 10, padding: 18, justifyContent: 'center' }}>
+    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#FFFFFF', textAlign: 'center' }}>模型基座：YOLOv8n 官方预训练权重 yolov8n.pt → 训练 8 轮 + 修正柿子框后微调 4 轮</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 430, width: 1200, height: 130, flexDirection: 'row', gap: 20 }}>
+    <Box style={{ width: 285, height: 130, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 52, fontWeight: 'bold', color: '#1E4FA8' }}>3</Text>
+      <Text style={{ fontSize: 20, color: '#4A5568', marginTop: 4 }}>个开源数据集</Text>
+    </Box>
+    <Box style={{ width: 285, height: 130, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 52, fontWeight: 'bold', color: '#1E4FA8' }}>2794</Text>
+      <Text style={{ fontSize: 20, color: '#4A5568', marginTop: 4 }}>张训练图</Text>
+    </Box>
+    <Box style={{ width: 285, height: 130, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 52, fontWeight: 'bold', color: '#1E4FA8' }}>734</Text>
+      <Text style={{ fontSize: 20, color: '#4A5568', marginTop: 4 }}>张验证图</Text>
+    </Box>
+    <Box style={{ width: 285, height: 130, background: '#E8EFF8', border: '1px solid #3D7BD9', borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 52, fontWeight: 'bold', color: '#0E3F8C' }}>16</Text>
+      <Text style={{ fontSize: 20, color: '#4A5568', marginTop: 4 }}>类检测标签</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 588, width: 1200, height: 52, background: '#E8EFF8', borderRadius: 8, paddingLeft: 18, justifyContent: 'center' }}>
+    <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>基础结论：合规开源数据（CC BY 4.0 / MIT）+ 预训练模型迁移微调 = 可复现的 16 类检测原型。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 668, width: 700, height: 24 }}><Text style={{ fontSize: 14, color: '#8B97A8' }}>水果成熟度智能分级与检测系统</Text></Box>
+  <Box style={{ position: 'absolute', right: 40, top: 668, width: 120, height: 24 }}><Text style={{ fontSize: 14, color: '#1E4FA8', textAlign: 'right' }}>03 / 13</Text></Box>
+</Slide>

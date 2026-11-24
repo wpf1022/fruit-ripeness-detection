@@ -1,0 +1,38 @@
+<Slide style={{ width: 1280, height: 720, padding: 0, background: '#FFFFFF', position: 'relative' }}>
+  <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 72, background: '#0E3F8C', paddingLeft: 40, paddingRight: 40, flexDirection: 'row', alignItems: 'center' }}>
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#FFFFFF' }}>为什么要做成熟度智能检测</Text>
+  </Box>
+  <Box style={{ position: 'absolute', left: 0, top: 72, width: 1280, height: 2, background: '#3D7BD9' }} />
+
+  <Box style={{ position: 'absolute', left: 40, top: 100, width: 380, height: 520, flexDirection: 'column', gap: 20 }}>
+    <Box style={{ height: 250, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 12 }}>
+      <Image src="assets/sample_apple_h.jpg" style={{ width: 354, height: 180, objectFit: 'cover', borderRadius: 6 }} />
+      <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.4, marginTop: 10 }}>原始样本：成熟度外观差异细微</Text>
+    </Box>
+    <Box style={{ height: 250, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 12 }}>
+      <Image src="assets/sample_bad_fruit.jpg" style={{ width: 354, height: 180, objectFit: 'cover', borderRadius: 6 }} />
+      <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.4, marginTop: 10 }}>腐烂类别：需要与成熟度同时区分</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 450, top: 100, width: 790, height: 540, flexDirection: 'column', gap: 16 }}>
+    <Box style={{ height: 140, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 18 }}>
+      <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#0E3F8C' }}>人工分级：效率低、主观性强</Text>
+      <Text style={{ fontSize: 21, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>成熟度依赖人眼判断，容易受光照、经验和疲劳影响；大批量场景下难以保持一致标准，也无法留存结构化结果。</Text>
+    </Box>
+    <Box style={{ height: 140, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 18 }}>
+      <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#0E3F8C' }}>整图分类：只能给一个标签</Text>
+      <Text style={{ fontSize: 21, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>旧版 MobileNetV2 判断整张图属于哪一类，但无法回答“图中有几个水果、分别在哪里、成熟度是否一致”。</Text>
+    </Box>
+    <Box style={{ height: 140, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 18 }}>
+      <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#0E3F8C' }}>单一数据集：难以覆盖多品类</Text>
+      <Text style={{ fontSize: 21, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>公开数据往往只覆盖少数水果或单一场景，类别体系和标注格式不统一，直接训练会得到很窄的能力边界。</Text>
+    </Box>
+    <Box style={{ height: 72, background: '#E8EFF8', borderRadius: 10, padding: 16, justifyContent: 'center' }}>
+      <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>结论：需要从“看整张图”升级为“逐个目标定位 + 分级”</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 668, width: 700, height: 24 }}><Text style={{ fontSize: 14, color: '#8B97A8' }}>水果成熟度智能分级与检测系统</Text></Box>
+  <Box style={{ position: 'absolute', right: 40, top: 668, width: 120, height: 24 }}><Text style={{ fontSize: 14, color: '#1E4FA8', textAlign: 'right' }}>03 / 12</Text></Box>
+</Slide>

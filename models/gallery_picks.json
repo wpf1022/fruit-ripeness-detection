@@ -1,0 +1,77 @@
+{
+  "apple-L": [
+    "train/apple-L_train_000",
+    "train/apple-L_train_002"
+  ],
+  "apple-M": [
+    "train/apple-M_train_001",
+    "train/apple-M_train_002",
+    "train/apple-M_train_008"
+  ],
+  "apple-H": [
+    "train/apple-H_train_000",
+    "train/apple-H_train_001",
+    "train/apple-H_train_003"
+  ],
+  "banana-L": [
+    "train/banana-L_train_003",
+    "train/banana-L_train_004",
+    "train/banana-L_train_008"
+  ],
+  "banana-M": [
+    "train/banana-M_train_000",
+    "train/banana-M_train_001",
+    "train/banana-M_train_003"
+  ],
+  "banana-H": [
+    "train/banana-H_train_003",
+    "train/banana-H_train_004",
+    "train/banana-H_train_005"
+  ],
+  "grape-L": [
+    "train/grape-L_train_000"
+  ],
+  "grape-M": [
+    "train/grape-M_train_000",
+    "train/grape-M_train_001",
+    "train/grape-M_train_004"
+  ],
+  "grape-H": [
+    "train/grape-H_train_000",
+    "train/grape-H_train_001",
+    "train/grape-H_train_002"
+  ],
+  "orange-L": [
+    "train/orange-L_train_009",
+    "train/orange-L_train_015",
+    "train/orange-L_train_017"
+  ],
+  "orange-M": [
+    "train/orange-M_train_005",
+    "train/orange-M_train_006",
+    "train/orange-M_train_007"
+  ],
+  "orange-H": [
+    "train/orange-H_train_000",
+    "train/orange-H_train_001",
+    "train/orange-H_train_002"
+  ],
+  "strawberry-L": [
+    "train/strawberry-L_train_002",
+    "train/strawberry-L_train_003"
+  ],
+  "strawberry-M": [
+    "train/strawberry-M_train_001",
+    "train/strawberry-M_train_003",
+    "train/strawberry-M_train_004"
+  ],
+  "strawberry-H": [
+    "train/strawberry-H_train_000",
+    "train/strawberry-H_train_003",
+    "train/strawberry-H_train_004"
+  ],
+  "bad fruit": [
+    "train/bad fruit_train_004",
+    "train/bad fruit_train_005"
+  ]
+}

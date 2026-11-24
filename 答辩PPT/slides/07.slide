@@ -1,0 +1,47 @@
+<Slide style={{ width: 1280, height: 720, padding: 0, background: '#FFFFFF', position: 'relative' }}>
+  <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 72, background: '#0E3F8C', paddingLeft: 40, paddingRight: 40, flexDirection: 'row', alignItems: 'center' }}>
+    <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#FFFFFF' }}>创新点二：多源异构数据的统一重构</Text>
+  </Box>
+  <Box style={{ position: 'absolute', left: 0, top: 72, width: 1280, height: 2, background: '#3D7BD9' }} />
+
+  <Box style={{ position: 'absolute', left: 40, top: 100, width: 1200, height: 160, flexDirection: 'row', gap: 30 }}>
+    <Box style={{ width: 380, height: 160, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 18 }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>数据源 A</Text>
+      <Text style={{ fontSize: 20, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>Kaggle / Roboflow 水果成熟度数据：苹果、香蕉、葡萄与腐烂类。</Text>
+    </Box>
+    <Box style={{ width: 380, height: 160, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 18 }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>数据源 B</Text>
+      <Text style={{ fontSize: 20, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>草莓成熟度 v2：提供高、中、低成熟，但标注为多行多边形。</Text>
+    </Box>
+    <Box style={{ width: 380, height: 160, background: '#E8EFF8', border: '1px solid #3D7BD9', borderRadius: 10, padding: 18 }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>数据源 C</Text>
+      <Text style={{ fontSize: 20, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>Fruits-360 Kaki：有柿子样本，但没有成熟度标签，需要补充生成。</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 290, width: 1200, height: 70, background: '#0E3F8C', borderRadius: 10, padding: 18, justifyContent: 'center' }}>
+    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF', textAlign: 'center' }}>统一处理：类别重映射 · 多边形转 bbox · 坐标裁剪 · 稀有类别优先采样 · train / val 划分</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 380, width: 1200, height: 220 }}>
+    <Table
+      style={{ width: '100%', height: '100%' }}
+      defaultTextStyle={{ fontSize: 17, textAlign: 'left', color: '#1A2230' }}
+      defaultCellStyle={{ border: { left: { width: 1, color: '#E5E7EB' }, right: { width: 1, color: '#E5E7EB' }, top: { width: 1, color: '#E5E7EB' }, bottom: { width: 1, color: '#E5E7EB' } } }}
+      cells={[
+        [{ text: '数据源', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } }, { text: '原始标注特点', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } }, { text: '关键处理', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } }, { text: '目标类别', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } }],
+        ['Kaggle / Roboflow', '32 类，含多水果成熟度与腐烂', '类别合并，rotten 统一', '苹果/香蕉/葡萄 H/M/L + 腐烂类'],
+        ['草莓成熟度 v2', '多行 polygon 标注', '取最小外接框并裁剪坐标', 'strawberry H/M/L'],
+        ['Fruits-360 Kaki', '只有柿子，无成熟度标签', '色相扰动 + 前景提取 + 贴背景', 'persimmon H/M/L'],
+        ['统一输出', '标注格式不一致', '类别均衡采样与划分', '16 类 YOLO txt 数据集'],
+      ]}
+    />
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 620, width: 1200, height: 32, background: '#E8EFF8', borderRadius: 8, paddingLeft: 18, justifyContent: 'center' }}>
+    <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>数据结论：把“不能直接用”的公开数据，整理成 2794 张训练图 + 734 张验证图的统一检测数据集。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 668, width: 700, height: 24 }}><Text style={{ fontSize: 14, color: '#8B97A8' }}>水果成熟度智能分级与检测系统</Text></Box>
+  <Box style={{ position: 'absolute', right: 40, top: 668, width: 120, height: 24 }}><Text style={{ fontSize: 14, color: '#1E4FA8', textAlign: 'right' }}>07 / 12</Text></Box>
+</Slide>

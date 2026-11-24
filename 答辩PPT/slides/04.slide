@@ -1,0 +1,54 @@
+<Slide style={{ width: 1280, height: 720, padding: 0, background: '#FFFFFF', position: 'relative' }}>
+  <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 72, background: '#0E3F8C', paddingLeft: 40, paddingRight: 40, flexDirection: 'row', alignItems: 'center' }}>
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#FFFFFF' }}>从整图分类到多目标检测</Text>
+  </Box>
+  <Box style={{ position: 'absolute', left: 0, top: 72, width: 1280, height: 2, background: '#3D7BD9' }} />
+
+  <Box style={{ position: 'absolute', left: 40, top: 100, width: 540, height: 500, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16 }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#4A5568' }}>旧版：MobileNetV2 整图分类</Text>
+    <Table
+      style={{ width: '100%', height: 420, marginTop: 12 }}
+      defaultTextStyle={{ fontSize: 18, textAlign: 'left', color: '#1A2230' }}
+      defaultCellStyle={{ border: { left: { width: 1, color: '#E5E7EB' }, right: { width: 1, color: '#E5E7EB' }, top: { width: 1, color: '#E5E7EB' }, bottom: { width: 1, color: '#E5E7EB' } } }}
+      cells={[
+        [{ text: '能力维度', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#4A5568' } } }, { text: '整图分类版', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#4A5568' } } }],
+        ['输出形式', '一个整图标签'],
+        ['目标数量', '默认 1 个'],
+        ['目标定位', '无检测框'],
+        ['成熟度粒度', '有限类别'],
+        ['应用场景', '单图分类演示'],
+        ['主要局限', '无法定位多目标'],
+      ]}
+    />
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 590, top: 250, width: 100, height: 130, justifyContent: 'center', alignItems: 'center' }}>
+    <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#1E4FA8', marginBottom: 12 }}>升级</Text>
+    <FAIcon name='arrow-right' style={{ fill: '#1E4FA8', width: 72, height: 72 }} />
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 700, top: 100, width: 540, height: 500, background: '#E8EFF8', border: '1px solid #3D7BD9', borderRadius: 10, padding: 16 }}>
+    <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#0E3F8C' }}>新版：YOLOv8n 多目标检测</Text>
+    <Table
+      style={{ width: '100%', height: 420, marginTop: 12 }}
+      defaultTextStyle={{ fontSize: 18, textAlign: 'left', color: '#1A2230' }}
+      defaultCellStyle={{ border: { left: { width: 1, color: '#D6DCE5' }, right: { width: 1, color: '#D6DCE5' }, top: { width: 1, color: '#D6DCE5' }, bottom: { width: 1, color: '#D6DCE5' } } }}
+      cells={[
+        [{ text: '能力维度', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } }, { text: '多目标检测版', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#0E3F8C' } } }],
+        ['输出形式', '类别 + 检测框 + 置信度'],
+        ['目标数量', '一张图多个'],
+        ['目标定位', '输出 xyxy 坐标'],
+        ['成熟度粒度', '16 类细粒度'],
+        ['应用场景', '上传 / 摄像头 / 示例图'],
+        ['主要局限', '泛化依赖数据'],
+      ]}
+    />
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 620, width: 1200, height: 32, background: '#E8EFF8', borderRadius: 8, paddingLeft: 18, justifyContent: 'center' }}>
+    <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>对比结论：新版保留了分类思路，但把输出从“整图一个标签”推进到“逐目标定位与分级”。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 668, width: 700, height: 24 }}><Text style={{ fontSize: 14, color: '#8B97A8' }}>水果成熟度智能分级与检测系统</Text></Box>
+  <Box style={{ position: 'absolute', right: 40, top: 668, width: 120, height: 24 }}><Text style={{ fontSize: 14, color: '#1E4FA8', textAlign: 'right' }}>04 / 12</Text></Box>
+</Slide>

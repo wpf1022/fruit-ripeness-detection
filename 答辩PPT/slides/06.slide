@@ -1,0 +1,32 @@
+<Slide style={{ width: 1280, height: 720, padding: 0, background: '#FFFFFF', position: 'relative' }}>
+  <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 72, background: '#0E3F8C', paddingLeft: 40, paddingRight: 40, flexDirection: 'row', alignItems: 'center' }}>
+    <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#FFFFFF' }}>创新点一：从“整图一个标签”到“逐目标分级”</Text>
+  </Box>
+  <Box style={{ position: 'absolute', left: 0, top: 72, width: 1280, height: 2, background: '#3D7BD9' }} />
+
+  <Box style={{ position: 'absolute', left: 40, top: 100, width: 620, height: 500, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 12 }}>
+    <Image src="assets/detect_multi_strawberry2.jpg" style={{ width: 594, height: 450, objectFit: 'cover', borderRadius: 6 }} />
+    <Text style={{ fontSize: 18, color: '#4A5568', textAlign: 'center', lineHeight: 1.4, marginTop: 8 }}>真实检测结果：多目标、多框、中文标签与置信度同时输出</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 680, top: 100, width: 560, height: 516, flexDirection: 'column', gap: 16 }}>
+    <Box style={{ height: 140, background: '#E8EFF8', border: '1px solid #3D7BD9', borderRadius: 10, padding: 18 }}>
+      <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#0E3F8C' }}>16 类细粒度标签</Text>
+      <Text style={{ fontSize: 20, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>苹果、香蕉、葡萄、草莓、柿子各有高 / 中 / 低成熟，再加腐烂水果，共 16 类。</Text>
+    </Box>
+    <Box style={{ height: 140, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 18 }}>
+      <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#0E3F8C' }}>多目标并行定位</Text>
+      <Text style={{ fontSize: 20, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>YOLOv8n 对每个目标输出 xyxy 检测框，不再把整张图压缩成一个标签。</Text>
+    </Box>
+    <Box style={{ height: 140, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 18 }}>
+      <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#0E3F8C' }}>结果可读可解释</Text>
+      <Text style={{ fontSize: 20, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>后端绘制中文类别与置信度，网页同步列出每个目标的类别、分数和耗时。</Text>
+    </Box>
+    <Box style={{ height: 48, background: '#0E3F8C', borderRadius: 8, paddingLeft: 18, justifyContent: 'center' }}>
+      <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#FFFFFF' }}>数据锚点：16 类 · 多目标 · 约 19.1 ms / 张</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 668, width: 700, height: 24 }}><Text style={{ fontSize: 14, color: '#8B97A8' }}>水果成熟度智能分级与检测系统</Text></Box>
+  <Box style={{ position: 'absolute', right: 40, top: 668, width: 120, height: 24 }}><Text style={{ fontSize: 14, color: '#1E4FA8', textAlign: 'right' }}>06 / 12</Text></Box>
+</Slide>

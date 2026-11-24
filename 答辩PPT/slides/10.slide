@@ -1,0 +1,51 @@
+<Slide style={{ width: 1280, height: 720, padding: 0, background: '#FFFFFF', position: 'relative' }}>
+  <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 72, background: '#0E3F8C', paddingLeft: 40, paddingRight: 40, flexDirection: 'row', alignItems: 'center' }}>
+    <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#FFFFFF' }}>系统演示：从模型输出到可交互验证</Text>
+  </Box>
+  <Box style={{ position: 'absolute', left: 0, top: 72, width: 1280, height: 2, background: '#3D7BD9' }} />
+
+  <Box style={{ position: 'absolute', left: 40, top: 100, width: 620, height: 500, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 12 }}>
+    <Image src="assets/detect_persimmon_demo.jpg" style={{ width: 594, height: 448, objectFit: 'cover', borderRadius: 6 }} />
+    <Text style={{ fontSize: 17, color: '#4A5568', textAlign: 'center', lineHeight: 1.4, marginTop: 8 }}>网页实际检测效果：柿子高成熟，中文标签、置信度、检测框同步展示</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 680, top: 100, width: 560, height: 490, flexDirection: 'row', flexWrap: 'wrap', gap: 20 }}>
+    <Box style={{ width: 270, height: 150, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 14 }}>
+      <FAIcon name='file' style={{ fill: '#1E4FA8', width: 30, height: 30 }} />
+      <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>上传 / 拖拽</Text>
+      <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.4, marginTop: 6 }}>本地图片即时推理，支持常见 jpg / png。</Text>
+    </Box>
+    <Box style={{ width: 270, height: 150, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 14 }}>
+      <FAIcon name='folder' style={{ fill: '#1E4FA8', width: 30, height: 30 }} />
+      <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>内置示例图</Text>
+      <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.4, marginTop: 6 }}>16 类各一张，克隆仓库后即可演示。</Text>
+    </Box>
+    <Box style={{ width: 270, height: 150, background: '#E8EFF8', border: '1px solid #3D7BD9', borderRadius: 10, padding: 14 }}>
+      <FAIcon name='eye' style={{ fill: '#1E4FA8', width: 30, height: 30 }} />
+      <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>摄像头交互</Text>
+      <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.4, marginTop: 6 }}>支持开启、拍照、关闭，关闭时释放设备。</Text>
+    </Box>
+    <Box style={{ width: 270, height: 150, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 14 }}>
+      <FAIcon name='cog' style={{ fill: '#1E4FA8', width: 30, height: 30 }} />
+      <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>置信度调节</Text>
+      <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.4, marginTop: 6 }}>滑杆控制阈值，观察检测结果变化。</Text>
+    </Box>
+    <Box style={{ width: 270, height: 150, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 14 }}>
+      <FAIcon name='chart-line' style={{ fill: '#1E4FA8', width: 30, height: 30 }} />
+      <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>结果可视化</Text>
+      <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.4, marginTop: 6 }}>输出类别、置信度、目标数量和耗时。</Text>
+    </Box>
+    <Box style={{ width: 270, height: 150, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 14 }}>
+      <FAIcon name='clock' style={{ fill: '#1E4FA8', width: 30, height: 30 }} />
+      <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>历史记录</Text>
+      <Text style={{ fontSize: 16, color: '#4A5568', lineHeight: 1.4, marginTop: 6 }}>SQLite 保存时间、类别、目标数与耗时。</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 610, width: 1200, height: 36, background: '#E8EFF8', borderRadius: 8, paddingLeft: 18, justifyContent: 'center' }}>
+    <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C' }}>系统结论：模型不再是孤立权重，而是可被老师现场验证的交互演示闭环。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 668, width: 700, height: 24 }}><Text style={{ fontSize: 14, color: '#8B97A8' }}>水果成熟度智能分级与检测系统</Text></Box>
+  <Box style={{ position: 'absolute', right: 40, top: 668, width: 120, height: 24 }}><Text style={{ fontSize: 14, color: '#1E4FA8', textAlign: 'right' }}>10 / 12</Text></Box>
+</Slide>

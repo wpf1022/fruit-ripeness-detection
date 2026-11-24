@@ -1,0 +1,66 @@
+<Slide style={{ width: 1280, height: 720, padding: 0, background: '#FFFFFF', position: 'relative' }}>
+  <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 72, background: '#0E3F8C', paddingLeft: 40, paddingRight: 40, flexDirection: 'row', alignItems: 'center' }}>
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#FFFFFF' }}>技术路线：数据—模型—系统闭环</Text>
+  </Box>
+  <Box style={{ position: 'absolute', left: 0, top: 72, width: 1280, height: 2, background: '#3D7BD9' }} />
+
+  <Box style={{ position: 'absolute', left: 40, top: 100, width: 1200, height: 220, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+    <Box style={{ width: 160, height: 220, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 12 }}>
+      <Box style={{ width: 36, height: 36, background: '#1E4FA8', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>1</Text></Box>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>多源采集</Text>
+      <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.45, marginTop: 6 }}>Kaggle / Roboflow、草莓数据集、Fruits-360</Text>
+    </Box>
+    <Box style={{ width: 24, justifyContent: 'center', alignItems: 'center' }}><FAIcon name='arrow-right' style={{ fill: '#3D7BD9', width: 24, height: 24 }} /></Box>
+    <Box style={{ width: 160, height: 220, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 12 }}>
+      <Box style={{ width: 36, height: 36, background: '#1E4FA8', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>2</Text></Box>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>标注统一</Text>
+      <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.45, marginTop: 6 }}>类别重映射、多边形转 bbox、坐标裁剪</Text>
+    </Box>
+    <Box style={{ width: 24, justifyContent: 'center', alignItems: 'center' }}><FAIcon name='arrow-right' style={{ fill: '#3D7BD9', width: 24, height: 24 }} /></Box>
+    <Box style={{ width: 160, height: 220, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 12 }}>
+      <Box style={{ width: 36, height: 36, background: '#1E4FA8', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>3</Text></Box>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>弱监督补齐</Text>
+      <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.45, marginTop: 6 }}>柿子三类样本：色相扰动 + 背景粘贴 + 自动框</Text>
+    </Box>
+    <Box style={{ width: 24, justifyContent: 'center', alignItems: 'center' }}><FAIcon name='arrow-right' style={{ fill: '#3D7BD9', width: 24, height: 24 }} /></Box>
+    <Box style={{ width: 160, height: 220, background: '#E8EFF8', border: '1px solid #3D7BD9', borderRadius: 10, padding: 12 }}>
+      <Box style={{ width: 36, height: 36, background: '#1E4FA8', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>4</Text></Box>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>训练与微调</Text>
+      <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.45, marginTop: 6 }}>YOLOv8n，8 epochs + 4 epochs 微调</Text>
+    </Box>
+    <Box style={{ width: 24, justifyContent: 'center', alignItems: 'center' }}><FAIcon name='arrow-right' style={{ fill: '#3D7BD9', width: 24, height: 24 }} /></Box>
+    <Box style={{ width: 160, height: 220, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 12 }}>
+      <Box style={{ width: 36, height: 36, background: '#1E4FA8', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>5</Text></Box>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>Flask 推理</Text>
+      <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.45, marginTop: 6 }}>上传、示例图、摄像头，置信度可调</Text>
+    </Box>
+    <Box style={{ width: 24, justifyContent: 'center', alignItems: 'center' }}><FAIcon name='arrow-right' style={{ fill: '#3D7BD9', width: 24, height: 24 }} /></Box>
+    <Box style={{ width: 160, height: 220, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 12 }}>
+      <Box style={{ width: 36, height: 36, background: '#1E4FA8', borderRadius: 6, justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' }}>6</Text></Box>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C', marginTop: 10 }}>结果可视化</Text>
+      <Text style={{ fontSize: 15, color: '#4A5568', lineHeight: 1.45, marginTop: 6 }}>中文标签、检测框、置信度、历史记录</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 330, width: 1200, height: 180, flexDirection: 'row', gap: 20 }}>
+    <Box style={{ width: 285, height: 180, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16, justifyContent: 'space-between' }}>
+      <Text style={{ fontSize: 48, fontWeight: 'bold', color: '#1E4FA8' }}>16</Text><Text style={{ fontSize: 20, fontWeight: 'bold', color: '#1A2230' }}>类输出</Text><Text style={{ fontSize: 16, color: '#4A5568' }}>5 类水果 × 3 成熟度 + 腐烂类</Text>
+    </Box>
+    <Box style={{ width: 285, height: 180, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16, justifyContent: 'space-between' }}>
+      <Text style={{ fontSize: 48, fontWeight: 'bold', color: '#1E4FA8' }}>2794</Text><Text style={{ fontSize: 20, fontWeight: 'bold', color: '#1A2230' }}>训练图像</Text><Text style={{ fontSize: 16, color: '#4A5568' }}>另有 734 张验证图像</Text>
+    </Box>
+    <Box style={{ width: 285, height: 180, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16, justifyContent: 'space-between' }}>
+      <Text style={{ fontSize: 48, fontWeight: 'bold', color: '#1E4FA8' }}>8+4</Text><Text style={{ fontSize: 20, fontWeight: 'bold', color: '#1A2230' }}>训练轮次</Text><Text style={{ fontSize: 16, color: '#4A5568' }}>先训练，再针对柿子框修正微调</Text>
+    </Box>
+    <Box style={{ width: 285, height: 180, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16, justifyContent: 'space-between' }}>
+      <Text style={{ fontSize: 48, fontWeight: 'bold', color: '#1E4FA8' }}>6.2MB</Text><Text style={{ fontSize: 20, fontWeight: 'bold', color: '#1A2230' }}>模型权重</Text><Text style={{ fontSize: 16, color: '#4A5568' }}>YOLOv8n 轻量模型，便于演示</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 540, width: 1200, height: 80, background: '#E8EFF8', borderRadius: 10, padding: 18, justifyContent: 'center' }}>
+    <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.5 }}>这条链路把“数据怎么来、模型怎么训、结果怎么用”串成闭环：不是只交付一个权重文件，而是交付一个可复现、可演示的系统。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 668, width: 700, height: 24 }}><Text style={{ fontSize: 14, color: '#8B97A8' }}>水果成熟度智能分级与检测系统</Text></Box>
+  <Box style={{ position: 'absolute', right: 40, top: 668, width: 120, height: 24 }}><Text style={{ fontSize: 14, color: '#1E4FA8', textAlign: 'right' }}>06 / 13</Text></Box>
+</Slide>

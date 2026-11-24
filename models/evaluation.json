@@ -57,7 +57,7 @@
   ],
   "train_samples": 3999,
   "val_samples": 1000,
-  "elapsed_seconds": 81.3,
+  "elapsed_seconds": 134.7,
   "dataset_source": "https://huggingface.co/datasets/darthraider/fruit-ripeness-detection-dataset",
   "license": "apache-2.0"
 }

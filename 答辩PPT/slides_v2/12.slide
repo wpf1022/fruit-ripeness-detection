@@ -1,0 +1,48 @@
+<Slide style={{ width: 1280, height: 720, padding: 0, background: '#FFFFFF', position: 'relative' }}>
+  <Box style={{ position: 'absolute', left: 0, top: 0, width: 1280, height: 72, background: '#0E3F8C', paddingLeft: 40, paddingRight: 40, flexDirection: 'row', alignItems: 'center' }}>
+    <Text style={{ fontSize: 32, fontWeight: 'bold', color: '#FFFFFF' }}>局限与下一步：先把数据真实性补齐</Text>
+  </Box>
+  <Box style={{ position: 'absolute', left: 0, top: 72, width: 1280, height: 2, background: '#3D7BD9' }} />
+
+  <Box style={{ position: 'absolute', left: 40, top: 100, width: 580, height: 500, flexDirection: 'row', flexWrap: 'wrap', gap: 20 }}>
+    <Box style={{ width: 280, height: 240, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16 }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>柿子数据偏弱监督</Text>
+      <Text style={{ fontSize: 19, color: '#4A5568', lineHeight: 1.5, marginTop: 12 }}>高 / 中 / 低成熟样本由色相扰动生成，不等同于真实采摘成熟度标注。</Text>
+      <Text style={{ fontSize: 16, color: '#D9534F', lineHeight: 1.4, marginTop: 16 }}>影响：类别补齐，但真实性不足。</Text>
+    </Box>
+    <Box style={{ width: 280, height: 240, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16 }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>公开数据场景单一</Text>
+      <Text style={{ fontSize: 19, color: '#4A5568', lineHeight: 1.5, marginTop: 12 }}>数据来自有限公开集，背景、光照、拍摄距离和摆放方式与真实环境仍有差距。</Text>
+      <Text style={{ fontSize: 16, color: '#D9534F', lineHeight: 1.4, marginTop: 16 }}>影响：演示稳定，泛化边界明显。</Text>
+    </Box>
+    <Box style={{ width: 280, height: 240, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16 }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>真实光照未系统验证</Text>
+      <Text style={{ fontSize: 19, color: '#4A5568', lineHeight: 1.5, marginTop: 12 }}>mAP50 0.832 是在拼装数据集验证集上取得，没有覆盖复杂自然光与遮挡。</Text>
+      <Text style={{ fontSize: 16, color: '#D9534F', lineHeight: 1.4, marginTop: 16 }}>影响：指标可报告，但不宜夸大。</Text>
+    </Box>
+    <Box style={{ width: 280, height: 240, background: '#F7F9FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16 }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>工程部署仍可优化</Text>
+      <Text style={{ fontSize: 19, color: '#4A5568', lineHeight: 1.5, marginTop: 12 }}>YOLOv8n 在 CPU 上约 19.1 ms / 张，适合答辩演示，但还不是工业级部署方案。</Text>
+      <Text style={{ fontSize: 16, color: '#D9534F', lineHeight: 1.4, marginTop: 16 }}>影响：可演示，不等于可量产。</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 640, top: 100, width: 600, height: 520, flexDirection: 'column', gap: 16 }}>
+    <Box style={{ height: 40, justifyContent: 'center' }}><Text style={{ fontSize: 26, fontWeight: 'bold', color: '#0E3F8C' }}>改进路线</Text></Box>
+    <Box style={{ height: 140, background: '#E8EFF8', border: '1px solid #3D7BD9', borderRadius: 10, padding: 16 }}>
+      <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>阶段 1 · 自采实拍</Text>
+      <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>补充不同光照、遮挡、摆放角度和真实成熟度样本，优先替换弱监督柿子数据。</Text>
+    </Box>
+    <Box style={{ height: 140, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16 }}>
+      <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>阶段 2 · 外部验证集</Text>
+      <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>单独采集与训练集不同来源的测试集，重新报告精度和混淆类别，避免自测偏高。</Text>
+    </Box>
+    <Box style={{ height: 140, background: '#F0F5FC', border: '1px solid #D6DCE5', borderRadius: 10, padding: 16 }}>
+      <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#0E3F8C' }}>阶段 3 · 轻量部署</Text>
+      <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.5, marginTop: 10 }}>在精度可接受前提下做量化、剪枝或边缘设备适配，提升实际部署价值。</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 40, top: 668, width: 700, height: 24 }}><Text style={{ fontSize: 14, color: '#8B97A8' }}>水果成熟度智能分级与检测系统</Text></Box>
+  <Box style={{ position: 'absolute', right: 40, top: 668, width: 120, height: 24 }}><Text style={{ fontSize: 14, color: '#1E4FA8', textAlign: 'right' }}>12 / 13</Text></Box>
+</Slide>

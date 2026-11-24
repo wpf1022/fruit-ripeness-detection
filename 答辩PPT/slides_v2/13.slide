@@ -1,0 +1,28 @@
+<Slide style={{ width: 1280, height: 720, padding: 0, background: '#0E3F8C', position: 'relative' }}>
+  <Box style={{ position: 'absolute', left: 60, top: 80, width: 600, height: 590, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 58, fontWeight: 'bold', color: '#FFFFFF' }}>项目结论</Text>
+    <Text style={{ fontSize: 22, color: '#BFCFE6', lineHeight: 1.5, marginTop: 12 }}>水果成熟度智能分级与检测系统</Text>
+    <Box style={{ width: 64, height: 4, background: '#FFC107', marginTop: 22, marginBottom: 30 }} />
+
+    <Box style={{ height: 90, background: '#1E4FA8', borderRadius: 10, padding: 18, justifyContent: 'center' }}>
+      <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#FFFFFF' }}>01  细粒度多目标检测</Text>
+      <Text style={{ fontSize: 18, color: '#D9E6F7', lineHeight: 1.4, marginTop: 6 }}>从整图分类升级为 16 类逐目标定位与成熟度分级。</Text>
+    </Box>
+    <Box style={{ height: 90, background: '#1E4FA8', borderRadius: 10, padding: 18, justifyContent: 'center', marginTop: 16 }}>
+      <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#FFFFFF' }}>02  多源数据重构</Text>
+      <Text style={{ fontSize: 18, color: '#D9E6F7', lineHeight: 1.4, marginTop: 6 }}>把格式不一、类别不一的数据整理为统一 YOLO 数据集。</Text>
+    </Box>
+    <Box style={{ height: 90, background: '#1E4FA8', borderRadius: 10, padding: 18, justifyContent: 'center', marginTop: 16 }}>
+      <Text style={{ fontSize: 23, fontWeight: 'bold', color: '#FFFFFF' }}>03  可交互系统闭环</Text>
+      <Text style={{ fontSize: 18, color: '#D9E6F7', lineHeight: 1.4, marginTop: 6 }}>训练、评估、Web 演示、历史记录与发布形成完整链路。</Text>
+    </Box>
+
+    <Text style={{ fontSize: 19, color: '#E8EFF8', lineHeight: 1.5, marginTop: 28 }}>创新定位：应用与工程创新，而非底层算法原创。</Text>
+    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#FFFFFF', marginTop: 18 }}>汇报完毕，谢谢各位老师</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 700, top: 80, width: 520, height: 560, background: '#FFFFFF', borderRadius: 14, padding: 20, flexDirection: 'column', justifyContent: 'center' }}>
+    <Image src="assets/detect_apple_demo.jpg" style={{ width: 480, height: 480, objectFit: 'cover', borderRadius: 10 }} />
+    <Text style={{ fontSize: 18, color: '#4A5568', textAlign: 'center', lineHeight: 1.4, marginTop: 12 }}>项目最终效果：类别、成熟度与置信度在同一画面可读</Text>
+  </Box>
+</Slide>

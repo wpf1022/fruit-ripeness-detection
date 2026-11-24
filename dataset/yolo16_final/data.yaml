@@ -1,0 +1,21 @@
+path: D:/2026-11-23-09-49-30/fruit-ripeness-a/dataset/yolo16_final
+train: images/train
+val: images/val
+nc: 16
+names:
+  0: apple-L
+  1: apple-M
+  2: apple-H
+  3: banana-L
+  4: banana-M
+  5: banana-H
+  6: grape-L
+  7: grape-M
+  8: grape-H
+  9: orange-L
+  10: orange-M
+  11: orange-H
+  12: strawberry-L
+  13: strawberry-M
+  14: strawberry-H
+  15: bad fruit

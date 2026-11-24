@@ -1,0 +1,20 @@
+<Slide style={{ width: 1280, height: 720, padding: 0, background: '#FFFFFF', position: 'relative' }}>
+  <Box style={{ position: 'absolute', left: 0, top: 0, width: 660, height: 720, background: '#0E3F8C', padding: 56, flexDirection: 'column', justifyContent: 'space-between' }}>
+    <Box>
+      <Text style={{ fontSize: 18, color: '#BFCFE6', letterSpacing: 2 }}>PROJECT DEFENSE · 2026</Text>
+      <Text style={{ fontSize: 60, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.18, marginTop: 28 }}>水果成熟度{'\n'}智能分级与检测系统</Text>
+      <Text style={{ fontSize: 24, color: '#D9E6F7', lineHeight: 1.5, marginTop: 24 }}>基于 YOLOv8 的多目标检测与 Web 演示</Text>
+    </Box>
+    <Box>
+      <Box style={{ width: 64, height: 4, background: '#FFC107', marginBottom: 24 }} />
+      <Text style={{ fontSize: 22, color: '#E8EFF8', lineHeight: 1.7 }}>汇报人：王文博</Text>
+      <Text style={{ fontSize: 22, color: '#E8EFF8', lineHeight: 1.7 }}>课题类型：机器视觉应用项目</Text>
+      <Text style={{ fontSize: 22, color: '#E8EFF8', lineHeight: 1.7 }}>时间：2026 年 11 月</Text>
+    </Box>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 660, top: 0, width: 620, height: 720, background: '#F7F9FC', padding: 28, flexDirection: 'column', justifyContent: 'center' }}>
+    <Image src="assets/detect_multi_strawberry.jpg" style={{ width: 564, height: 564, objectFit: 'cover', borderRadius: 16, border: '2px solid #D6DCE5' }} />
+    <Text style={{ fontSize: 18, color: '#4A5568', textAlign: 'center', lineHeight: 1.5, marginTop: 18 }}>真实检测结果：单图多目标定位 + 成熟度分级</Text>
+  </Box>
+</Slide>
