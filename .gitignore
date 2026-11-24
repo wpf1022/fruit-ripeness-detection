@@ -49,3 +49,7 @@ contacts_pick/
 hf_tree.json
 答辩PPT/.cache/
 答辩PPT/.slidep/
+
+# ===== PPT 改稿中间产物（配图素材与页面预览） =====
+ppt_assets/
+ppt_preview/
